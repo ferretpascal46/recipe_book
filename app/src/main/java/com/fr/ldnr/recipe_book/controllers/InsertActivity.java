@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fr.ldnr.recipe_book.R;
-import com.fr.ldnr.recipe_book.dao.DAOCapitale;
+import com.fr.ldnr.recipe_book.dao.DAORecipe;
 
 public class InsertActivity extends AppCompatActivity {
 
@@ -32,8 +32,8 @@ public class InsertActivity extends AppCompatActivity {
          */
         //error.setText(R.string.message_content);
 
-        // création d'un objet DAOCapitale pour insérer dans la database
-        final DAOCapitale dao = new DAOCapitale(this);
+        // création d'un objet DAORecipe pour insérer dans la database
+        final DAORecipe dao = new DAORecipe(this);
         dao.open();
 
         // gestion du click du bouton ajouter
@@ -47,7 +47,7 @@ public class InsertActivity extends AppCompatActivity {
                      */
                     //error.setText(R.string.message_content1);
                 } else {
-                    // insertion dans la database, méthode de DAOCapitale
+                    // insertion dans la database, méthode de DAORecipe
                     boolean isInserted = dao.insertCapitale(capital.getText().toString(),
                             pays.getText().toString(), nobble.getText().toString(), url.getText().toString());
 

@@ -31,7 +31,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         error.setText(R.string.message_content2);
 
-        // création d'un objet DAOCapitale pour modifier dans la database
+        // création d'un objet DAORecipe pour modifier dans la database
         final DAOCapitale dao = new DAOCapitale(this);
         dao.openLect();
 
@@ -78,7 +78,7 @@ public class UpdateActivity extends AppCompatActivity {
                 if (capital.getText().toString().isEmpty() || pays.getText().toString().isEmpty() || url.getText().toString().isEmpty() || nombre.getText().toString().isEmpty()){
                     error.setText(R.string.message_content1);
                 } else {
-                    // mise à jour de la database, méthode de DAOCapitale
+                    // mise à jour de la database, méthode de DAORecipe
                     boolean isUpdate = dao.updateCapital(capital.getText().toString(),
                             pays.getText().toString(), nombre.getText().toString(), url.getText().toString());
 

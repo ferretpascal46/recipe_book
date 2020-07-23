@@ -5,23 +5,28 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
+import com.fr.ldnr.recipe_book.model.RecipeObject;
 import com.fr.ldnr.recipe_book.utils.DBHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOCapitale {
+public class DAORecipe {
 
-    public static final String TABLE_NAME = "CAPT";
-    public static final String COLUMN_CAPITAL = "NAMECAP";
-    public static final String COLUMN_PAYS = "NAMEPAYS";
-    public static final String COLUMN_POP = "POPULATION";
-    public static final String COLUMN_URL = "ADRESSE";
+    private static final String RECIPE_ID           = "recipe_id";
+    private static final String RECIPE_TITLE        = "recipe_title";
+    private static final String RECIPE_NOTE         = "recipe_note";
+    private static final String RECIPE_CATEGORY     = "recipe_category";
+    private static final String RECIPE_FILE         = "recipe_file";
+    private static final String FK_RECIPE_ALIMENT_1 = "fk_aliment_1";
+    private static final String FK_RECIPE_ALIMENT_2 = "fk_aliment_2";
+
     private DBHelper db;
     private SQLiteDatabase database;
 
-    public DAOCapitale(Context context) {
+    public DAORecipe(Context context) {
         db = new DBHelper((context));
     }
 
@@ -38,13 +43,17 @@ public class DAOCapitale {
     }
 
     // fonction insertion d'une capitale
-    public boolean insertCapitale(String nameCAP, String namePays, String population, String adresse) {
+    public boolean insertCapitale(int recipe_id, String recipe_title, String recipe_note, String recipe_category,
+                                  String recipe_file, int fk_recipe_aliment_1, int fk_recipe_aliment_2) {
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_CAPITAL, nameCAP);
-        contentValues.put(COLUMN_PAYS, namePays);
-        contentValues.put(COLUMN_POP, population);
-        contentValues.put(COLUMN_URL, adresse);
+        contentValues.put(RECIPE_ID, recipe_id);
+        contentValues.put(RECIPE_TITLE, recipe_title);
+        contentValues.put(RECIPE_NOTE, recipe_note);
+        contentValues.put(RECIPE_CATEGORY, recipe_category);
+        contentValues.put(RECIPE_FILE, recipe_file);
+        contentValues.put(FK_RECIPE_ALIMENT_1, fk_recipe_aliment_1);
+        contentValues.put(FK_RECIPE_ALIMENT_2, fk_recipe_aliment_2);
 
         if (database.insert(TABLE_NAME, null, contentValues) == -1) {
             return false;

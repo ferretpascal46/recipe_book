@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fr.ldnr.recipe_book.R;
-import com.fr.ldnr.recipe_book.dao.DAOCapitale;
+import com.fr.ldnr.recipe_book.dao.DAORecipe;
 
 public class DeleteActivity extends AppCompatActivity {
 
@@ -22,8 +22,8 @@ public class DeleteActivity extends AppCompatActivity {
         final EditText capital = findViewById(R.id.saisie_capitale);
         final Button connexion = findViewById(R.id.clic_button2);
 
-        // création d'un objet DAOCapitale pour supprimer dans la database
-        final DAOCapitale dao = new DAOCapitale(this);
+        // création d'un objet DAORecipe pour supprimer dans la database
+        final DAORecipe dao = new DAORecipe(this);
 
         //ouverture en mode lecture/écriture
         dao.open();
@@ -32,7 +32,7 @@ public class DeleteActivity extends AppCompatActivity {
         connexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // suppression dans la database, méthode de DAOCapitale
+                // suppression dans la database, méthode de DAORecipe
                 boolean isDeleted = dao.deleteData(capital.getText().toString());
 
                 // contrôle de la suppression dans la database

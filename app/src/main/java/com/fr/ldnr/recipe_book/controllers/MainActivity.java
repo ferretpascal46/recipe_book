@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fr.ldnr.recipe_book.R;
-import com.fr.ldnr.recipe_book.dao.DAOCapitale;
+import com.fr.ldnr.recipe_book.dao.DAORecipe;
 import com.fr.ldnr.recipe_book.utils.DBHelper;
 import com.fr.ldnr.recipe_book.viewHolder.MyAdapter;
 
@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         // création d'un objet DBHelper pour la création de la base
         DBHelper db = new DBHelper(this);
 
-        // création d'un objet DAOCapitale pour lire toutes les données de la database
-        final DAOCapitale dao = new DAOCapitale(this);
+        // création d'un objet DAORecipe pour lire toutes les données de la database
+        final DAORecipe dao = new DAORecipe(this);
 
         // ouverture de la la database en mode lecture seulement
         dao.openLect();
