@@ -18,17 +18,17 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_ALIMENT = "aliment";
 
     //RECIPE Table      - column names
-    private static final String RECIPE_ID           = "recipe_id";
-    private static final String RECIPE_TITLE        = "recipe_title";
-    private static final String RECIPE_NOTE         = "recipe_note";
-    private static final String RECIPE_CATEGORY     = "recipe_category";
-    private static final String RECIPE_FILE         = "recipe_file";
-    private static final String FK_RECIPE_ALIMENT_1 = "fk_aliment_1";
-    private static final String FK_RECIPE_ALIMENT_2 = "fk_aliment_2";
+    public static final String RECIPE_ID           = "recipe_id";
+    public static final String RECIPE_TITLE        = "recipe_title";
+    public static final String RECIPE_NOTE         = "recipe_note";
+    public static final String RECIPE_CATEGORY     = "recipe_category";
+    public static final String RECIPE_FILE         = "recipe_file";
+    public static final String FK_RECIPE_ALIMENT_1 = "fk_aliment_1";
+    public static final String FK_RECIPE_ALIMENT_2 = "fk_aliment_2";
 
     //ALMENT Table      - column names
-    private static final String ALIMENT_ID      = "aliment_id";
-    private static final String ALIMENT_NAME    = "aliment_name";
+    public static final String ALIMENT_ID      = "aliment_id";
+    public static final String ALIMENT_NAME    = "aliment_name";
 
     //Table create statement
     //RECIPE Table      - create statement
