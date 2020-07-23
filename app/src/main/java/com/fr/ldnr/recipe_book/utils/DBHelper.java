@@ -35,7 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_RECIPE =
             "CREATE TABLE "
             + TABLE_RECIPE + "("
-            + RECIPE_ID             + " INTEGER PRIMARY KEY,"
+            + RECIPE_ID             + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + RECIPE_TITLE          + " TEXT,"
             + RECIPE_NOTE           + " TEXT,"
             + RECIPE_CATEGORY       + " TEXT,"
@@ -53,7 +53,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_ALIMENT =
             "CREATE TABLE "
             + TABLE_ALIMENT + "("
-            + ALIMENT_ID    + " INTEGER PRIMARY KEY,"
+            + ALIMENT_ID    + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ALIMENT_NAME  + " TEXT"
             +")";
 
