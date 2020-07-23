@@ -12,7 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fr.ldnr.recipe_book.R;
-import com.fr.ldnr.recipe_book.dao.DAOCapitale;
+import com.fr.ldnr.recipe_book.dao.DAOAliment;
+import com.fr.ldnr.recipe_book.dao.DAORecipe;
 
 public class UpdateActivity extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        final TextView textPays = findViewById(R.id.nom_pays);
+       /* final TextView textPays = findViewById(R.id.nom_pays);
         final TextView textPop = findViewById(R.id.nom_pop);
         final TextView textUrl = findViewById(R.id.nom_url);
         final EditText capital = findViewById(R.id.saisie_capitale);
@@ -32,14 +33,13 @@ public class UpdateActivity extends AppCompatActivity {
         final Button connexion2 = findViewById(R.id.clic_button);
         final TextView error = findViewById(R.id.message);
 
-        /**
-         * TODO: changer message_content
-         */
-        //error.setText(R.string.message_content2);
 
-        // création d'un objet DAORecipe pour modifier dans la database
-        final DAOCapitale dao = new DAOCapitale(this);
-        dao.openLect();
+        error.setText(R.string.message_content2);
+
+        création d'un objet DAORecipe pour modifier dans la database
+        final DAORecipe dao1 = new DAORecipe(this);
+        final DAOAliment dao2 = new DAOAliment(this);
+        dao1.openLect();
 
         // gestion du click du bouton modifier
         connexion1.setOnClickListener(new View.OnClickListener() {
@@ -49,10 +49,8 @@ public class UpdateActivity extends AppCompatActivity {
                 if (capital.getText().toString().isEmpty()) {
                     error.setVisibility(View.VISIBLE);
 
-                    /**
-                     * TODO: changer message_content
-                     */
-                    //error.setText(R.string.message_content3);
+
+                   error.setText(R.string.message_content3);
 
                 } else {
                     Cursor rs = dao.getCapital(capital.getText().toString());
@@ -70,15 +68,12 @@ public class UpdateActivity extends AppCompatActivity {
                         connexion1.setVisibility(View.INVISIBLE);
                         connexion2.setVisibility(View.VISIBLE);
                         pays.setVisibility(View.VISIBLE);
-                        /**
-                         * TODO: changer message_content
-                         */
-                        //error.setText(R.string.message_content5);
+
+                      error.setText(R.string.message_content5);
+
                     } else {
-                        /**
-                         * TODO: changer message_content
-                         */
-                        //error.setText(R.string.message_content4);
+
+                        error.setText(R.string.message_content4);
                     }
                 }
             }
@@ -93,9 +88,7 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //gestion des erreurs
                 if (capital.getText().toString().isEmpty() || pays.getText().toString().isEmpty() || url.getText().toString().isEmpty() || nombre.getText().toString().isEmpty()){
-                    /**
-                     * TODO: changer message_content
-                     */
+
                     //error.setText(R.string.message_content1);
                 } else {
                     // mise à jour de la database, méthode de DAORecipe
@@ -114,7 +107,7 @@ public class UpdateActivity extends AppCompatActivity {
                     startActivity(backIntent);
                 }
             }
-        });
+        });*/
 
     }
 }
