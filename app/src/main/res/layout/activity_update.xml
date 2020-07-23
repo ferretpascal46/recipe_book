@@ -8,6 +8,7 @@
     tools:context="com.fr.ldnr.recipe_book.controllers.UpdateActivity">
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/updateActivity"
@@ -19,11 +20,15 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.038"/>
+            app:layout_constraintVertical_bias="0.038" />
+
+
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
             android:text="@string/recipe_name"
             android:textColor="@color/darkred"
             android:textSize="20dp"
@@ -33,13 +38,14 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.17" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/etUpdateRecipe"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="4dp"
             android:hint="@string/hintRecipeName"
             android:textSize="15dp"
@@ -49,9 +55,8 @@
             app:layout_constraintHorizontal_bias="0.831"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.165" />
-
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,11 +67,11 @@
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/etUpdate_comments"
-            app:layout_constraintHorizontal_bias="0.097"
+            app:layout_constraintHorizontal_bias="0.115"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.972"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="1.0"></TextView>
 
         <EditText
             android:id="@+id/etUpdate_comments"
@@ -81,7 +86,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.602"></EditText>
+            app:layout_constraintVertical_bias="0.707"></EditText>
 
         <Button
             android:id="@+id/upDatBeutton"
@@ -90,14 +95,13 @@
             android:background="@color/grey"
             android:padding="20dp"
             android:text="@string/updateButton"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.847"></Button>
+            app:layout_constraintVertical_bias="0.893"></Button>
 
         <TextView
             android:id="@+id/message"
