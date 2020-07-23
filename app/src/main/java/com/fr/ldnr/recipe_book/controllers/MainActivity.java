@@ -58,8 +58,14 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,"Data Not Inserted", Toast.LENGTH_LONG).show();
         */
 
+        /**
+         * TODO: finir la méthode populate
+         */
+        //dao.populate():
+
+
         // remplissage de la liste avec toutes les données de la base
-        recipes = dao.getAllData();
+        //recipes = dao.getAllData();
 
         // affichage des capitales en une colonne en mode vertical et deux en mode horizontal
         int displayMode = getResources().getConfiguration().orientation;
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         }
 
-        recyclerView.setAdapter(new MyAdapter(recipes));
+        //recyclerView.setAdapter(new MyAdapter(recipes));
 
     }
 

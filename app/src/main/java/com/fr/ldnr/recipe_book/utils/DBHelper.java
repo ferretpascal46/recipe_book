@@ -41,8 +41,13 @@ public class DBHelper extends SQLiteOpenHelper {
             + RECIPE_CATEGORY       + " TEXT,"
             + RECIPE_FILE           + " TEXT,"
             + FK_RECIPE_ALIMENT_1   + " INTEGER,"
-            + FK_RECIPE_ALIMENT_2   + " INTEGER"
-            +")";
+            + FK_RECIPE_ALIMENT_2   + " INTEGER,"
+
+            + " FOREIGN KEY ("+FK_RECIPE_ALIMENT_1+") REFERENCES "
+                    +TABLE_ALIMENT+"("+ALIMENT_ID+"),"
+            + " FOREIGN KEY ("+FK_RECIPE_ALIMENT_2+") REFERENCES "
+                    +TABLE_ALIMENT+"("+ALIMENT_ID+")"
+            +");";
 
     //ALIMENT Table      - create statement
     private static final String CREATE_TABLE_ALIMENT =

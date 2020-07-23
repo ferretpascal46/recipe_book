@@ -59,8 +59,8 @@ public class InsertActivity extends AppCompatActivity {
                     dao.close();
 
                     // retour à la vue principale
-                    Intent secondIntent = new Intent(InsertActivity.this, MainActivity.class);
-                    startActivity(secondIntent);
+                    Intent backIntent = new Intent(InsertActivity.this, MainActivity.class);
+                    startActivity(backIntent);
                 }
             }
         });
