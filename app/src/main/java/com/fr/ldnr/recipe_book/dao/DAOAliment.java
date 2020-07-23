@@ -34,7 +34,11 @@ public class DAOAliment {
         db.close();
     }
 
-    // fonction insertion d'un aliment
+    /**
+     * insertion d'un aliment
+     * @param aliment_name
+     * @return
+     */
     public boolean insertAliment(String aliment_name) {
 
         ContentValues contentValues = new ContentValues();
@@ -45,20 +49,31 @@ public class DAOAliment {
         } else return true;
     }
 
-    //fonction suppression d'un aliment
+    /**
+     * suppression d'un aliment
+     * @param nom
+     * @return
+     */
     public boolean deleteAliment(String nom) {
         if (database.delete(DBHelper.TABLE_ALIMENT, DBHelper.ALIMENT_NAME + "=?", new String[]{nom}) == 0) {
             return false;
         } else return true;
     }
 
-    //fonction pour récupérer un aliment
+    /**
+     * récupérer un aliment
+     * @param nom
+     * @return
+     */
     public Cursor getAliment(String nom) {
         return database.rawQuery("select * from " + DBHelper.TABLE_ALIMENT + " where " + DBHelper.ALIMENT_NAME + " = " + "'" + nom + "'" + "", null);
     }
 
 
-    // fonction pour récupérer tous les aliments
+    /**
+     * récupérer tous les aliments
+     * @return
+     */
     public List<AlimentObject> getAllAliments() {
 
         List<AlimentObject> cities = new ArrayList<>();
@@ -74,7 +89,12 @@ public class DAOAliment {
         return cities;
     }
 
-    //fonction modification d'un aliment
+    /**
+     * modification d'un aliment
+     * @param aliment_id
+     * @param aliment_name
+     * @return
+     */
     public boolean updateAliment(int aliment_id, String aliment_name) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DBHelper.ALIMENT_ID, aliment_id);
@@ -85,26 +105,34 @@ public class DAOAliment {
         } else return false;
     }
 
+    /**
+     * récupérer le nombre d'occurence de la table
+     * @return
+     */
     public int numbersOfRows() {
         openLect();
         return (int) DatabaseUtils.queryNumEntries(database, DBHelper.TABLE_ALIMENT);
     }
 
+    /**
+     * inserer quelques aliment dans la base de donnée
+     * @return
+     */
     public boolean populateAliment() {
         boolean complete = true;
         numbersOfRows();
         if (numbersOfRows() == 0) {
             boolean isInserted1 = insertAliment("");
             if (!isInserted1) complete = false;
-            boolean isInserted2 = insertAliment("comté");
+            boolean isInserted2 = insertAliment("COMTÉ");
             if (!isInserted2) complete = false;
-            boolean isInserted3 = insertAliment("melon");
+            boolean isInserted3 = insertAliment("MELON");
             if (!isInserted3) complete = false;
-            boolean isInserted4 = insertAliment("jambon cru");
+            boolean isInserted4 = insertAliment("JAMBON CRU");
             if (!isInserted4) complete = false;
-            boolean isInserted5 = insertAliment("courgettes");
+            boolean isInserted5 = insertAliment("COURGETTES");
             if (!isInserted5) complete = false;
-            boolean isInserted6 = insertAliment("chorizo");
+            boolean isInserted6 = insertAliment("CHORIZO");
             if (!isInserted6) complete = false;
         }
         return complete;

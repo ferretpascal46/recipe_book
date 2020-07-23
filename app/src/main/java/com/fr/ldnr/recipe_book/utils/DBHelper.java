@@ -16,22 +16,27 @@ public class DBHelper extends SQLiteOpenHelper {
     //Database table
     public static final String TABLE_RECIPE = "recipe";
     public static final String TABLE_ALIMENT = "aliment";
+    public static final String TABLE_ASSOCIATION_REC_ALI = "association_rec_ali";
 
-    //RECIPE Table      - column names
+    //RECIPE Table                  - column names
     public static final String RECIPE_ID           = "recipe_id";
     public static final String RECIPE_TITLE        = "recipe_title";
     public static final String RECIPE_NOTE         = "recipe_note";
     public static final String RECIPE_CATEGORY     = "recipe_category";
     public static final String RECIPE_FILE         = "recipe_file";
-    public static final String FK_RECIPE_ALIMENT_1 = "fk_aliment_1";
-    public static final String FK_RECIPE_ALIMENT_2 = "fk_aliment_2";
 
-    //ALMENT Table      - column names
+    //ALIMENT Table                 - column names
     public static final String ALIMENT_ID      = "aliment_id";
     public static final String ALIMENT_NAME    = "aliment_name";
 
+    //ASSOCIATION_REC_ALI Table     - column names
+    public static final String FK_RECIPE      = "fk_recipe";
+    public static final String FK_ALIMENT      = "fk_aliment";
+
+
+
     //Table create statement
-    //RECIPE Table      - create statement
+    //RECIPE Table          - create statement
     private static final String CREATE_TABLE_RECIPE =
             "CREATE TABLE "
             + TABLE_RECIPE + "("
@@ -39,17 +44,17 @@ public class DBHelper extends SQLiteOpenHelper {
             + RECIPE_TITLE          + " TEXT,"
             + RECIPE_NOTE           + " TEXT,"
             + RECIPE_CATEGORY       + " TEXT,"
-            + RECIPE_FILE           + " TEXT,"
-            + FK_RECIPE_ALIMENT_1   + " INTEGER,"
+            + RECIPE_FILE           + " TEXT"
+            /*+ FK_RECIPE_ALIMENT_1   + " INTEGER"
             + FK_RECIPE_ALIMENT_2   + " INTEGER,"
 
             + " FOREIGN KEY ("+FK_RECIPE_ALIMENT_1+") REFERENCES "
                     +TABLE_ALIMENT+"("+ALIMENT_ID+"),"
             + " FOREIGN KEY ("+FK_RECIPE_ALIMENT_2+") REFERENCES "
-                    +TABLE_ALIMENT+"("+ALIMENT_ID+")"
+                    +TABLE_ALIMENT+"("+ALIMENT_ID+")"*/
             +");";
 
-    //ALIMENT Table      - create statement
+    //ALIMENT Table         - create statement
     private static final String CREATE_TABLE_ALIMENT =
             "CREATE TABLE "
             + TABLE_ALIMENT + "("
@@ -57,6 +62,14 @@ public class DBHelper extends SQLiteOpenHelper {
             + ALIMENT_NAME  + " TEXT"
             +")";
 
+    //ASSOCIATION_REC_ALI Table     - create statement
+    private static final String CREATE_TABLE_ASSOCIATION_REC_ALI =
+            "CREATE TABLE "
+                    + TABLE_ASSOCIATION_REC_ALI + "("
+                    + FK_RECIPE  + " INTEGER NOT NULL,"
+                    + FK_ALIMENT + " INTEGER NOT NULL, "
+                    + "PRIMARY KEY ("+FK_RECIPE+" , "+FK_ALIMENT+")"
+                    +");";
 
 
     public DBHelper(Context context) {
@@ -68,6 +81,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_RECIPE);
         db.execSQL(CREATE_TABLE_ALIMENT);
+        db.execSQL(CREATE_TABLE_ASSOCIATION_REC_ALI);
         Log.i("DATABASE", "onCreate invoked");
     }
 
