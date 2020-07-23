@@ -8,6 +8,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.fr.ldnr.recipe_book.R;
 import com.fr.ldnr.recipe_book.model.RecipeObject;
 import com.fr.ldnr.recipe_book.utils.DBHelper;
 
@@ -109,7 +110,7 @@ public class DAORecipe {
                     result.getString(1),
                     result.getString(2),
                     result.getString(3),
-                    result.getString(4))
+                    result.getInt(4))
             );
         }
 
@@ -137,7 +138,7 @@ public class DAORecipe {
                             result.getString(1),
                             result.getString(2),
                             result.getString(3),
-                            result.getString(4))
+                            result.getInt(4))
             );
         }
 
@@ -181,7 +182,7 @@ public class DAORecipe {
                             result.getString(1),
                             result.getString(2),
                             result.getString(3),
-                            result.getString(4))
+                            result.getInt(4))
             );
         }
 
@@ -232,15 +233,15 @@ public class DAORecipe {
     public boolean populateRecipe() {
         boolean complete = true;
         if (numbersOfRows() == 0) {
-            boolean isInserted0 = insertRecipe(new RecipeObject("Gougère au comté", "", "Apéritif", "ap_gougere_au_comte.jpg"));
+            boolean isInserted0 = insertRecipe(new RecipeObject("Gougère au comté", "", "Apéritif", R.drawable.saumon_abricots));
             //boolean isInserted0 = insertRecipe("Gougère au comté", "", "Apéritif", "ap_gougere_au_comte.jpg", 2, 1);
             if (!isInserted0) complete = false;
 
-            boolean isInserted1 = insertRecipe(new RecipeObject("Granité de melon et chips de jambon cru", "", "Apéritif", "ap_granitr_de_melon_cru.jpg"));
+            boolean isInserted1 = insertRecipe(new RecipeObject("Granité de melon et chips de jambon cru", "", "Apéritif", R.drawable.ap_granitr_de_melon_jambon_cru));
             //boolean isInserted1 = insertRecipe("Granité de melon et chips de jambon cru", "", "Apéritif", "ap_granitr_de_melon_cru.jpg", 3, 4);
             if (!isInserted1) complete = false;
 
-            boolean isInserted2 = insertRecipe(new RecipeObject("Madeleine courgettes chorizo", "", "Apéritif", "ap_madeleine_courgette_chorizo.jpg"));
+            boolean isInserted2 = insertRecipe(new RecipeObject("Madeleine courgettes chorizo", "", "Apéritif", R.drawable.ap_tapenade_thon));
             //boolean isInserted2 = insertRecipe("Madeleine courgettes chorizo", "", "Apéritif", "ap_madeleine_courgette_chorizo.jpg", 5, 6);
             if (!isInserted2) complete = false;
 

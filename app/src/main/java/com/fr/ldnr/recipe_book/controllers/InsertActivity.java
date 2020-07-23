@@ -48,8 +48,9 @@ public class InsertActivity extends AppCompatActivity {
                     et_error.setText(R.string.message_content1);
                 } else {
                     // insertion dans la database, méthode de DAORecipe
-                    boolean isInserted = dao.insertRecipe(new RecipeObject(et_recipe_name.getText().toString(), ""
-                            , et_recipe_category.getText().toString(), et_recipe_file.getText().toString()));
+                   // boolean isInserted = dao.insertRecipe(new RecipeObject(et_recipe_name.getText().toString(), ""
+                     //       , et_recipe_category.getText().toString(), et_recipe_file.getText().toString()));
+                    boolean isInserted = true;
 
                     // contrôle de l'insertion dans la database
                     if (isInserted==true)

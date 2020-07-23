@@ -5,18 +5,18 @@ public class RecipeObject {
     private String recipe_title;
     private String recipe_note;
     private String recipe_category;
-    private String recipe_file;
+    private int recipe_file;
 
 
 
-    public RecipeObject(int recipe_id, String recipe_title, String recipe_note, String recipe_category, String recipe_file) {
+    public RecipeObject(int recipe_id, String recipe_title, String recipe_note, String recipe_category, int recipe_file) {
         this.recipe_id = recipe_id;
         this.recipe_title = recipe_title;
         this.recipe_note = recipe_note;
         this.recipe_category = recipe_category;
         this.recipe_file = recipe_file;
     }
-    public RecipeObject( String recipe_title, String recipe_note, String recipe_category, String recipe_file) {
+    public RecipeObject( String recipe_title, String recipe_note, String recipe_category, int recipe_file) {
         this.recipe_id = 0;
         this.recipe_title = recipe_title;
         this.recipe_note = recipe_note;
@@ -56,11 +56,11 @@ public class RecipeObject {
         this.recipe_category = recipe_category;
     }
 
-    public String getRecipe_file() {
+    public int getRecipe_file() {
         return recipe_file;
     }
 
-    public void setRecipe_file(String recipe_file) {
+    public void setRecipe_file(int recipe_file) {
         this.recipe_file = recipe_file;
     }
 

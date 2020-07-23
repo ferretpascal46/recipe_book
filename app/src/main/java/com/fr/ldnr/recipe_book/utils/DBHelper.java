@@ -44,7 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + RECIPE_TITLE          + " TEXT,"
             + RECIPE_NOTE           + " TEXT,"
             + RECIPE_CATEGORY       + " TEXT,"
-            + RECIPE_FILE           + " TEXT"
+            + RECIPE_FILE           + " INTEGER"
             /*+ FK_RECIPE_ALIMENT_1   + " INTEGER"
             + FK_RECIPE_ALIMENT_2   + " INTEGER,"
 
