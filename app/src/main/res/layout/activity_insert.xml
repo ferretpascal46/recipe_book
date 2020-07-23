@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context="com.fr.ldnr.recipe_book.controllers.InsertActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Ajout_capitale"
+        android:text="@string/addActivity"
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/capitale"
+        android:text="@string/recipe_name"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -37,7 +37,7 @@
         android:id="@+id/saisie_capitale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/entrer_capitale"
+        android:hint="@string/hintRecipeName"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.824"
@@ -49,7 +49,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pays"
+        android:text="@string/recipe_category"
         android:textColor="@android:color/holo_blue_light"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -64,7 +64,7 @@
         android:id="@+id/saisie_pays"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/entrer_pays"
+        android:hint="@string/hintCategory"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.649"
@@ -77,34 +77,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pop"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.511"></TextView>
-
-    <EditText
-        android:id="@+id/saisie_pop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/entrer_pop"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501"></EditText>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/url"
+        android:text="@string/commentary"
         android:textColor="@android:color/darker_gray"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -120,7 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:hint="@string/entrer_url"
+        android:hint="@string/hintComentary"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -135,7 +108,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:padding="20dp"
-        android:text="@string/ajouter"
+        android:text="@string/addButton"
         android:textSize="20dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
