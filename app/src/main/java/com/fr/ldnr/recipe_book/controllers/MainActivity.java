@@ -16,7 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fr.ldnr.recipe_book.R;
-import com.fr.ldnr.recipe_book.dao.DAORecipe;
+import com.fr.ldnr.recipe_book.dao.DAOCapitale;
+import com.fr.ldnr.recipe_book.model.RecipeObject;
 import com.fr.ldnr.recipe_book.utils.DBHelper;
 import com.fr.ldnr.recipe_book.viewHolder.MyAdapter;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private RecyclerView recyclerView;
-    private List<MyObject> cities = new ArrayList<>();
+    private List<RecipeObject> recipes = new ArrayList<>();
 
 
     @Override
@@ -38,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         // création d'un objet DBHelper pour la création de la base
         DBHelper db = new DBHelper(this);
 
-        // création d'un objet DAORecipe pour lire toutes les données de la database
-        final DAORecipe dao = new DAORecipe(this);
+        // création d'un objet DAOCapitale pour lire toutes les données de la database
+        final DAOCapitale dao = new DAOCapitale(this);
 
         // ouverture de la la database en mode lecture seulement
         dao.openLect();
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         */
 
         // remplissage de la liste avec toutes les données de la base
-        cities = dao.getAllData();
+        recipes = dao.getAllData();
 
         // affichage des capitales en une colonne en mode vertical et deux en mode horizontal
         int displayMode = getResources().getConfiguration().orientation;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         }
 
-        recyclerView.setAdapter(new MyAdapter(cities));
+        recyclerView.setAdapter(new MyAdapter(recipes));
 
     }
 
