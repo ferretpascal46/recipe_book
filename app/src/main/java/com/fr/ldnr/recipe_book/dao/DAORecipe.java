@@ -16,16 +16,6 @@ import java.util.List;
 
 public class DAORecipe {
 
-    private static final String DATABASE_NAME = "recipeBook.db";
-    public static final String TABLE_RECIPE = "recipe";
-    private static final String RECIPE_ID = "recipe_id";
-    private static final String RECIPE_TITLE = "recipe_title";
-    private static final String RECIPE_NOTE = "recipe_note";
-    private static final String RECIPE_CATEGORY = "recipe_category";
-    private static final String RECIPE_FILE = "recipe_file";
-    private static final String FK_RECIPE_ALIMENT_1 = "fk_aliment_1";
-    private static final String FK_RECIPE_ALIMENT_2 = "fk_aliment_2";
-
     private DBHelper db;
     private SQLiteDatabase database;
 
@@ -46,33 +36,32 @@ public class DAORecipe {
     }
 
     // fonction insertion d'une recette
-    public boolean insertRecipe(int recipe_id, String recipe_title, String recipe_note, String recipe_category,
+    public boolean insertRecipe(String recipe_title, String recipe_note, String recipe_category,
                                 String recipe_file, int fk_recipe_aliment_1, int fk_recipe_aliment_2) {
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(RECIPE_ID, recipe_id);
-        contentValues.put(RECIPE_TITLE, recipe_title);
-        contentValues.put(RECIPE_NOTE, recipe_note);
-        contentValues.put(RECIPE_CATEGORY, recipe_category);
-        contentValues.put(RECIPE_FILE, recipe_file);
-        contentValues.put(FK_RECIPE_ALIMENT_1, fk_recipe_aliment_1);
-        contentValues.put(FK_RECIPE_ALIMENT_2, fk_recipe_aliment_2);
+        contentValues.put(DBHelper.RECIPE_TITLE, recipe_title);
+        contentValues.put(DBHelper.RECIPE_NOTE, recipe_note);
+        contentValues.put(DBHelper.RECIPE_CATEGORY, recipe_category);
+        contentValues.put(DBHelper.RECIPE_FILE, recipe_file);
+        contentValues.put(DBHelper.FK_RECIPE_ALIMENT_1, fk_recipe_aliment_1);
+        contentValues.put(DBHelper.FK_RECIPE_ALIMENT_2, fk_recipe_aliment_2);
 
-        if (database.insert(TABLE_RECIPE, null, contentValues) == -1) {
+        if (database.insert(DBHelper.TABLE_RECIPE, null, contentValues) == -1) {
             return false;
         } else return true;
     }
 
     //fonction suppression d'une recette
     public boolean deleteRecipe(String nom) {
-        if (database.delete(TABLE_RECIPE, RECIPE_TITLE + "=?", new String[]{nom}) == 0) {
+        if (database.delete(DBHelper.TABLE_RECIPE, DBHelper.RECIPE_TITLE + "=?", new String[]{nom}) == 0) {
             return false;
         } else return true;
     }
 
     //fonction pour récupérer une recette
     public Cursor getRecipe(String nom) {
-        return database.rawQuery("select * from " + TABLE_RECIPE + " where " + RECIPE_TITLE + " = " + "'" + nom + "'" + "", null);
+        return database.rawQuery("select * from " + DBHelper.TABLE_RECIPE + " where " + DBHelper.RECIPE_TITLE + " = " + "'" + nom + "'" + "", null);
     }
 
 
@@ -81,7 +70,7 @@ public class DAORecipe {
 
         List<RecipeObject> cities = new ArrayList<>();
 
-        Cursor result = database.rawQuery("select * from " + TABLE_RECIPE, null);
+        Cursor result = database.rawQuery("select * from " + DBHelper.TABLE_RECIPE, null);
 
         while (result.moveToNext()) {
             cities.add(new RecipeObject(result.getInt(1),
@@ -101,34 +90,33 @@ public class DAORecipe {
     public boolean updateRecipe(int recipe_id, String recipe_title, String recipe_note, String recipe_category,
                                 String recipe_file, int fk_recipe_aliment_1, int fk_recipe_aliment_2) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(RECIPE_ID, recipe_id);
-        contentValues.put(RECIPE_TITLE, recipe_title);
-        contentValues.put(RECIPE_NOTE, recipe_note);
-        contentValues.put(RECIPE_CATEGORY, recipe_category);
-        contentValues.put(RECIPE_FILE, recipe_file);
-        contentValues.put(FK_RECIPE_ALIMENT_1, fk_recipe_aliment_1);
-        contentValues.put(FK_RECIPE_ALIMENT_2, fk_recipe_aliment_2);
+        contentValues.put(DBHelper.RECIPE_ID, recipe_id);
+        contentValues.put(DBHelper.RECIPE_TITLE, recipe_title);
+        contentValues.put(DBHelper.RECIPE_NOTE, recipe_note);
+        contentValues.put(DBHelper.RECIPE_CATEGORY, recipe_category);
+        contentValues.put(DBHelper.RECIPE_FILE, recipe_file);
+        contentValues.put(DBHelper.FK_RECIPE_ALIMENT_1, fk_recipe_aliment_1);
+        contentValues.put(DBHelper.FK_RECIPE_ALIMENT_2, fk_recipe_aliment_2);
 
 
-        if (database.update(TABLE_RECIPE, contentValues, RECIPE_TITLE + "=?", new String[]{recipe_title}) > 0) {
+        if (database.update(DBHelper.TABLE_RECIPE, contentValues, DBHelper.RECIPE_TITLE + "=?", new String[]{recipe_title}) > 0) {
             return true;
         } else return false;
     }
 
     public int numbersOfRows() {
         openLect();
-        return (int) DatabaseUtils.queryNumEntries(database, TABLE_RECIPE);
+        return (int) DatabaseUtils.queryNumEntries(database, DBHelper.TABLE_RECIPE);
     }
 
     public boolean populateRecipe() {
         boolean complete = true;
-        numbersOfRows();
         if (numbersOfRows() == 0) {
-            boolean isInserted0 = insertRecipe(0, "Gougère au comté", "", "Apéritif", "", 1, 0);
+            boolean isInserted0 = insertRecipe("Gougère au comté", "", "Apéritif", "ap_gougere_au_comte.jpg", 2, 1);
             if (!isInserted0) complete = false;
-            boolean isInserted1 = insertRecipe(1, "Granité de melon et chips de jambon cru", "", "Apéritif", "", 2, 3);
+            boolean isInserted1 = insertRecipe("Granité de melon et chips de jambon cru", "", "Apéritif", "ap_granitr_de_melon_cru.jpg", 3, 4);
             if (!isInserted1) complete = false;
-            boolean isInserted2 = insertRecipe(2, "Madeleine courgettes chorizo", "", "Apéritif", "", 4, 5);
+            boolean isInserted2 = insertRecipe("Madeleine courgettes chorizo", "", "Apéritif", "ap_madeleine_courgette_chorizo.jpg", 5, 6);
             if (!isInserted2) complete = false;
         }
         return complete;
