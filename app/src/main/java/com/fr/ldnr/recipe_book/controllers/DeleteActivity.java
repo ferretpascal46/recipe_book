@@ -19,8 +19,8 @@ public class DeleteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
 
-        final EditText recipes = findViewById(R.id.saisie_capitale);
-        final Button connexion = findViewById(R.id.clic_button2);
+        final EditText recipes = findViewById(R.id.etDeleteRecipe);
+        final Button connexion = findViewById(R.id.delete_button);
 
         // création d'un objet DAORecipe pour supprimer dans la database
         final DAORecipe dao = new DAORecipe(this);

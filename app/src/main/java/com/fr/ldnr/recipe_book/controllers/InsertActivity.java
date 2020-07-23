@@ -21,10 +21,10 @@ public class InsertActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
-        final EditText et_recipe_name = findViewById(R.id.saisie_capitale);
-        final EditText et_recipe_category = findViewById(R.id.saisie_pays);
-        final EditText et_recipe_file = findViewById(R.id.saisie_url);
-        final Button btn_insert = findViewById(R.id.clic_button);
+        final EditText et_recipe_name = findViewById(R.id.etNewRecipe);
+        final EditText et_recipe_category = findViewById(R.id.etCategory);
+        final EditText et_recipe_file = findViewById(R.id.etImage);
+        final Button btn_insert = findViewById(R.id.AddButton);
         final TextView et_error = findViewById(R.id.message);
 
         /**
