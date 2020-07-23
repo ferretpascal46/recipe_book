@@ -10,6 +10,8 @@ import com.fr.ldnr.recipe_book.R;
 import com.fr.ldnr.recipe_book.model.RecipeObject;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
     private TextView textView_cat;
@@ -35,6 +37,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         textView_cat.setText(myObject.getRecipe_category());
         textView_name.setText(myObject.getRecipe_title());
         textView_com.setText(myObject.getRecipe_note());
-        Picasso.with(imageView.getContext()).load(myObject.getRecipe_file()).centerCrop().fit().into(imageView);
+        imageView.setImageResource(R.drawable.ldnr);
+        //Picasso.with(imageView.getContext()).load(myObject.getRecipe_file()).centerCrop().fit().into(imageView);
     }
 }
