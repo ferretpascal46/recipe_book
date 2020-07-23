@@ -19,7 +19,7 @@ public class DeleteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
 
-        final EditText capital = findViewById(R.id.saisie_capitale);
+        final EditText recipes = findViewById(R.id.saisie_capitale);
         final Button connexion = findViewById(R.id.clic_button2);
 
         // création d'un objet DAORecipe pour supprimer dans la database
@@ -33,7 +33,7 @@ public class DeleteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // suppression dans la database, méthode de DAORecipe
-                boolean isDeleted = dao.deleteData(capital.getText().toString());
+                boolean isDeleted = dao.deleteRecipe(recipes.getText().toString());
 
                 // contrôle de la suppression dans la database
                 if (isDeleted == false)
