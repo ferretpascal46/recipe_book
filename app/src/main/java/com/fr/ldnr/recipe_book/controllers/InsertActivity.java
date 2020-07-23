@@ -18,7 +18,7 @@ public class InsertActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_insert);
 
         final EditText capital = findViewById(R.id.saisie_capitale);
         final EditText pays = findViewById(R.id.saisie_pays);

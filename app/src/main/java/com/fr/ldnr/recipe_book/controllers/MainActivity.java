@@ -15,6 +15,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.fr.ldnr.recipe_book.R;
+import com.fr.ldnr.recipe_book.dao.DAOCapitale;
+import com.fr.ldnr.recipe_book.model.MyObject;
+import com.fr.ldnr.recipe_book.utils.DBHelper;
+import com.fr.ldnr.recipe_book.viewHolder.MyAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 

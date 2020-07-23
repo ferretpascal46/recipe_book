@@ -17,7 +17,7 @@ public class DeleteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_third);
+        setContentView(R.layout.activity_delete);
 
         final EditText capital = findViewById(R.id.saisie_capitale);
         final Button connexion = findViewById(R.id.clic_button2);
