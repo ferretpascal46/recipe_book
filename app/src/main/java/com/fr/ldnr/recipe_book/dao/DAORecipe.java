@@ -35,7 +35,18 @@ public class DAORecipe {
         db.close();
     }
 
-    // fonction insertion d'une recette
+    // fonction
+
+    /**
+     * insertion d'une recette
+     * @param recipe_title
+     * @param recipe_note
+     * @param recipe_category
+     * @param recipe_file
+     * @param fk_recipe_aliment_1
+     * @param fk_recipe_aliment_2
+     * @return
+     */
     public boolean insertRecipe(String recipe_title, String recipe_note, String recipe_category,
                                 String recipe_file, int fk_recipe_aliment_1, int fk_recipe_aliment_2) {
 
@@ -44,36 +55,47 @@ public class DAORecipe {
         contentValues.put(DBHelper.RECIPE_NOTE, recipe_note);
         contentValues.put(DBHelper.RECIPE_CATEGORY, recipe_category);
         contentValues.put(DBHelper.RECIPE_FILE, recipe_file);
-        contentValues.put(DBHelper.FK_RECIPE_ALIMENT_1, fk_recipe_aliment_1);
-        contentValues.put(DBHelper.FK_RECIPE_ALIMENT_2, fk_recipe_aliment_2);
 
         if (database.insert(DBHelper.TABLE_RECIPE, null, contentValues) == -1) {
             return false;
         } else return true;
     }
 
-    //fonction suppression d'une recette
+    /**
+     * suppression d'une recette
+     * @param nom
+     * @return
+     */
     public boolean deleteRecipe(String nom) {
         if (database.delete(DBHelper.TABLE_RECIPE, DBHelper.RECIPE_TITLE + "=?", new String[]{nom}) == 0) {
             return false;
         } else return true;
     }
 
-    //fonction pour récupérer une recette
+    /**
+     * récupérer une recette
+     * @param nom
+     * @return
+     */
     public Cursor getRecipe(String nom) {
-        return database.rawQuery("select * from " + DBHelper.TABLE_RECIPE + " where " + DBHelper.RECIPE_TITLE + " = " + "'" + nom + "'" + "", null);
+        String request =    "SELECT * FROM " + DBHelper.TABLE_RECIPE +
+                            " WHERE " + DBHelper.RECIPE_TITLE + " = '" + nom + "';";
+        return database.rawQuery(request, null);
     }
 
 
-    // fonction pour récupérer toutes les recettes
+    /**
+     * récupérer toutes les recettes
+     * @return
+     */
     public List<RecipeObject> getAllRecipe() {
 
-        List<RecipeObject> cities = new ArrayList<>();
-
-        Cursor result = database.rawQuery("select * from " + DBHelper.TABLE_RECIPE, null);
+        List<RecipeObject> recipes = new ArrayList<>();
+        String request = "SELECT * FROM " + DBHelper.TABLE_RECIPE;
+        Cursor result = database.rawQuery(request, null);
 
         while (result.moveToNext()) {
-            cities.add(new RecipeObject(result.getInt(1),
+            recipes.add(new RecipeObject(result.getInt(1),
                     result.getString(2),
                     result.getString(3),
                     result.getString(4),
@@ -83,20 +105,93 @@ public class DAORecipe {
         }
 
         result.close();
-        return cities;
+        return recipes;
     }
 
-    //fonction modification d'une recette
+    /**
+     * récupérer toutes les recettes en fonction de la category
+     * @param category
+     * @return
+     */
+    public List<RecipeObject> getAllRecipeByCategory(String category) {
+
+        List<RecipeObject> recipes = new ArrayList<>();
+        String request =    "SELECT * FROM " + DBHelper.TABLE_RECIPE +
+                            " WHERE " + DBHelper.RECIPE_CATEGORY + " = '" + category + "';";
+        Cursor result = database.rawQuery(request, null);
+
+        while (result.moveToNext()) {
+            recipes.add(new RecipeObject(result.getInt(1),
+                    result.getString(2),
+                    result.getString(3),
+                    result.getString(4),
+                    result.getString(5),
+                    result.getInt(6),
+                    result.getInt(7)));
+        }
+
+        result.close();
+        return recipes;
+    }
+
+
+    /**
+     * récupérer toutes les recettes en fonction de l'aliment
+     * @param aliment
+     * @return
+     */
+    public List<RecipeObject> getAllRecipeByAliments(String aliment) {
+
+        List<RecipeObject> recipes = new ArrayList<>();
+
+        String request =    "SELECT "
+                + DBHelper.RECIPE_ID        + ","
+                + DBHelper.RECIPE_TITLE     + ","
+                + DBHelper.RECIPE_NOTE      + ","
+                + DBHelper.RECIPE_CATEGORY  + ","
+                + DBHelper.RECIPE_FILE
+
+                +" FROM "
+                + DBHelper.TABLE_RECIPE + ", "
+                + DBHelper.TABLE_ALIMENT +" AND "
+                + DBHelper.TABLE_ASSOCIATION_REC_ALI
+
+                +" WHERE '" + DBHelper.RECIPE_ID    + "' = '" + DBHelper.FK_RECIPE + "'"
+                +" AND '"   + DBHelper.ALIMENT_ID   + "' = '" + DBHelper.FK_ALIMENT + "';"
+                +" AND '"   + DBHelper.ALIMENT_NAME + "' = '" + aliment.toUpperCase() +"';";
+
+        Cursor result = database.rawQuery(request, null);
+
+        while (result.moveToNext()) {
+            recipes.add(new RecipeObject(result.getInt(1),
+                    result.getString(2),
+                    result.getString(3),
+                    result.getString(4),
+                    result.getString(5),
+                    result.getInt(6),
+                    result.getInt(7)));
+        }
+
+        result.close();
+        return recipes;
+    }
+    /**
+     * modification d'une recette
+     * @param recipe_id
+     * @param recipe_title
+     * @param recipe_note
+     * @param recipe_category
+     * @param recipe_file
+     * @return
+     */
     public boolean updateRecipe(int recipe_id, String recipe_title, String recipe_note, String recipe_category,
-                                String recipe_file, int fk_recipe_aliment_1, int fk_recipe_aliment_2) {
+                                String recipe_file) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DBHelper.RECIPE_ID, recipe_id);
-        contentValues.put(DBHelper.RECIPE_TITLE, recipe_title);
-        contentValues.put(DBHelper.RECIPE_NOTE, recipe_note);
-        contentValues.put(DBHelper.RECIPE_CATEGORY, recipe_category);
-        contentValues.put(DBHelper.RECIPE_FILE, recipe_file);
-        contentValues.put(DBHelper.FK_RECIPE_ALIMENT_1, fk_recipe_aliment_1);
-        contentValues.put(DBHelper.FK_RECIPE_ALIMENT_2, fk_recipe_aliment_2);
+        contentValues.put(DBHelper.RECIPE_ID            , recipe_id);
+        contentValues.put(DBHelper.RECIPE_TITLE         , recipe_title);
+        contentValues.put(DBHelper.RECIPE_NOTE          , recipe_note);
+        contentValues.put(DBHelper.RECIPE_CATEGORY      , recipe_category);
+        contentValues.put(DBHelper.RECIPE_FILE          , recipe_file);
 
 
         if (database.update(DBHelper.TABLE_RECIPE, contentValues, DBHelper.RECIPE_TITLE + "=?", new String[]{recipe_title}) > 0) {
@@ -104,11 +199,19 @@ public class DAORecipe {
         } else return false;
     }
 
+    /**
+     * récupérer le nombre d'occurence de la table
+     * @return
+     */
     public int numbersOfRows() {
         openLect();
         return (int) DatabaseUtils.queryNumEntries(database, DBHelper.TABLE_RECIPE);
     }
 
+    /**
+     * inserer quelques recette dans la base de donnée
+     * @return
+     */
     public boolean populateRecipe() {
         boolean complete = true;
         if (numbersOfRows() == 0) {
