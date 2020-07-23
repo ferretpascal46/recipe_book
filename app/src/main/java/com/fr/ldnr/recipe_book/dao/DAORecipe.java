@@ -12,10 +12,11 @@ import com.fr.ldnr.recipe_book.R;
 import com.fr.ldnr.recipe_book.model.RecipeObject;
 import com.fr.ldnr.recipe_book.utils.DBHelper;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAORecipe {
+public class DAORecipe implements Serializable {
 
     private DBHelper db;
     private SQLiteDatabase database;
@@ -92,6 +93,17 @@ public class DAORecipe {
         return database.rawQuery(request, null);
     }
 
+    /**
+     * récupérer une recette
+     * @param id
+     * @return
+     */
+    public Cursor getRecipeById(int id) {
+        String request = "SELECT * FROM " + DBHelper.TABLE_RECIPE +
+                " WHERE " + DBHelper.RECIPE_ID + " = '" + id + "';";
+        return database.rawQuery(request, null);
+    }
+
 
     /**
      * récupérer toutes les recettes
@@ -116,6 +128,27 @@ public class DAORecipe {
 
         result.close();
         return recipes;
+    }
+
+    /**
+     * récupérer toutes les categories
+     * @return
+     */
+    public List<String> getAllCategories() {
+
+        List<String> categories = new ArrayList<>();
+        String request = "SELECT DISTINCT "+ DBHelper.RECIPE_CATEGORY +
+                " FROM " + DBHelper.TABLE_RECIPE +";";
+
+        Cursor result = database.rawQuery(request, null);
+
+        while (result.moveToNext()) {
+
+            categories.add( result.getString(0) );
+        }
+
+        result.close();
+        return categories;
     }
 
     /**
@@ -215,6 +248,29 @@ public class DAORecipe {
         } else return false;
     }
 
+
+    /**
+     * modification d'une recette
+     * @param recipeObject
+     * @return
+     */
+    public boolean updateRecipeExeptFile(RecipeObject recipeObject) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DBHelper.RECIPE_ID        , recipeObject.getRecipe_id());
+        contentValues.put(DBHelper.RECIPE_TITLE     , recipeObject.getRecipe_title());
+        contentValues.put(DBHelper.RECIPE_NOTE      , recipeObject.getRecipe_note());
+        contentValues.put(DBHelper.RECIPE_CATEGORY  , recipeObject.getRecipe_category());
+        contentValues.put(DBHelper.RECIPE_FILE      , recipeObject.getRecipe_file());
+        Log.d("TAG", "updateRecipeExeptFile: "+recipeObject.getRecipe_id());
+        Log.d("TAG", "updateRecipeExeptFile: "+recipeObject.getRecipe_title());
+        Log.d("TAG", "updateRecipeExeptFile: "+recipeObject.getRecipe_note());
+        Log.d("TAG", "updateRecipeExeptFile: "+recipeObject.getRecipe_category());
+        Log.d("TAG", "updateRecipeExeptFile: "+recipeObject.getRecipe_file());
+
+        if (database.update(DBHelper.TABLE_RECIPE, contentValues, DBHelper.RECIPE_ID + "=?", new String[]{String.valueOf(recipeObject.getRecipe_id())}) > 0) {
+            return true;
+        } else return false;
+    }
     /**
      * récupérer le nombre d'occurence de la table
      *

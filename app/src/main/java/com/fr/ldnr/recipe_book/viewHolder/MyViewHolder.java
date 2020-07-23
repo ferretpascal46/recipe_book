@@ -43,13 +43,9 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         textView_cat.setText(myObject.getRecipe_category());
         textView_name.setText(myObject.getRecipe_title());
         textView_com.setText(myObject.getRecipe_note());
-        //Bitmap image = BitmapFactory.decodeFile(myObject.getRecipe_file());
-        //Picasso.with(imageView.getContext()).load().centerCrop().fit().into(imageView);
         Bitmap image = BitmapFactory.decodeFile(imageView.getContext().getPackageCodePath()+"/"+myObject.getRecipe_file());
         imageView.setImageBitmap(image);
         textView_id.setText(String.valueOf(myObject.getRecipe_id()));
-        //Picasso.with(imageView.getContext()).load("android.resource://com.fr.ldnr.recipe_book/ap_granitr_de_melon_cru.jpg").centerCrop().fit().into(imageView);
         imageView.setImageResource(myObject.getRecipe_file());
-        //Picasso.with(imageView.getContext()).load(myObject.getRecipe_file()).centerCrop().fit().into(imageView);
     }
 }
