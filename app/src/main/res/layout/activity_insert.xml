@@ -19,7 +19,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038"></TextView>
+        app:layout_constraintVertical_bias="0.038"/>
 
     <EditText
         android:id="@+id/etRecipe"
@@ -35,7 +35,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174"></EditText>
+        app:layout_constraintVertical_bias="0.174"/>
 
 
     <TextView
@@ -53,7 +53,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314"></TextView>
+        app:layout_constraintVertical_bias="0.314"/>
 
 
     <EditText
@@ -87,7 +87,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168"></TextView>
+        app:layout_constraintVertical_bias="0.168"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.427"></TextView>
+        app:layout_constraintVertical_bias="0.427"/>
 
     <EditText
         android:id="@+id/etIngredient1"
@@ -116,7 +116,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.435"></>
+        app:layout_constraintVertical_bias="0.435"/>
 
     <EditText
         android:id="@+id/etIngredient2"
@@ -132,7 +132,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.565"></>
+        app:layout_constraintVertical_bias="0.565"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -145,8 +145,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.624"></TextView>
-
+/>
     <EditText
         android:id="@+id/saisie_url"
         android:layout_width="match_parent"
@@ -159,7 +158,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.732"></EditText>
+        app:layout_constraintVertical_bias="0.732"/>
 
     <Button
         android:id="@+id/clic_button"
@@ -174,7 +173,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.932"></Button>
+        app:layout_constraintVertical_bias="0.932"/>
 
     <TextView
         android:id="@+id/message"
@@ -189,7 +188,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99"></TextView>
+        app:layout_constraintVertical_bias="0.99"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
