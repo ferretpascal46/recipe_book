@@ -1,5 +1,7 @@
 package com.fr.ldnr.recipe_book.viewHolder;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     private TextView textView_cat;
     private TextView textView_name;
     private TextView textView_com;
+    private TextView textView_id;
     private ImageView imageView;
 
     //itemView est la vue correspondante à une cellue
@@ -27,6 +30,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         textView_cat = itemView.findViewById(R.id.text_cat);
         textView_name = itemView.findViewById(R.id.text_name);
         textView_com = itemView.findViewById(R.id.text_com);
+        textView_id = itemView.findViewById(R.id.textView_id);
         imageView = itemView.findViewById(R.id.image);
     }
 
@@ -37,6 +41,13 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         textView_cat.setText(myObject.getRecipe_category());
         textView_name.setText(myObject.getRecipe_title());
         textView_com.setText(myObject.getRecipe_note());
+        //Bitmap image = BitmapFactory.decodeFile(myObject.getRecipe_file());
+        //Picasso.with(imageView.getContext()).load().centerCrop().fit().into(imageView);
+        Bitmap image = BitmapFactory.decodeFile(imageView.getContext().getPackageCodePath()+"/"+myObject.getRecipe_file());
+        imageView.setImageBitmap(image);
+        textView_id.setText(String.valueOf(myObject.getRecipe_id()));
+        //Picasso.with(imageView.getContext()).load("android.resource://com.fr.ldnr.recipe_book/ap_granitr_de_melon_cru.jpg").centerCrop().fit().into(imageView);
+
         imageView.setImageResource(R.drawable.saumon_abricots);
         //Picasso.with(imageView.getContext()).load(myObject.getRecipe_file()).centerCrop().fit().into(imageView);
     }

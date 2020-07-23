@@ -16,7 +16,6 @@ public class RecipeObject {
         this.recipe_category = recipe_category;
         this.recipe_file = recipe_file;
     }
-
     public RecipeObject( String recipe_title, String recipe_note, String recipe_category, String recipe_file) {
         this.recipe_id = 0;
         this.recipe_title = recipe_title;

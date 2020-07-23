@@ -67,6 +67,17 @@ public class DAORecipe {
             return false;
         } else return true;
     }
+    /**
+     * suppression d'une recette
+     *
+     * @param id
+     * @return
+     */
+    public boolean deleteRecipeById(int id) {
+        if (database.delete(DBHelper.TABLE_RECIPE, DBHelper.RECIPE_ID + "=?",new String[]{String.valueOf(id)} ) == 0) {
+            return false;
+        } else return true;
+    }
 
     /**
      * récupérer une recette
@@ -221,17 +232,19 @@ public class DAORecipe {
     public boolean populateRecipe() {
         boolean complete = true;
         if (numbersOfRows() == 0) {
-            boolean isInserted0 = insertRecipe(new RecipeObject("Gougère au comté", "", "Apéritif", "ap_gougere_au_comte"));
+            boolean isInserted0 = insertRecipe(new RecipeObject("Gougère au comté", "", "Apéritif", "ap_gougere_au_comte.jpg"));
             //boolean isInserted0 = insertRecipe("Gougère au comté", "", "Apéritif", "ap_gougere_au_comte.jpg", 2, 1);
             if (!isInserted0) complete = false;
 
-            boolean isInserted1 = insertRecipe(new RecipeObject("Granité de melon et chips de jambon cru", "", "Apéritif", "ap_granitr_de_melon_cru"));
+            boolean isInserted1 = insertRecipe(new RecipeObject("Granité de melon et chips de jambon cru", "", "Apéritif", "ap_granitr_de_melon_cru.jpg"));
             //boolean isInserted1 = insertRecipe("Granité de melon et chips de jambon cru", "", "Apéritif", "ap_granitr_de_melon_cru.jpg", 3, 4);
             if (!isInserted1) complete = false;
 
-            boolean isInserted2 = insertRecipe(new RecipeObject("Madeleine courgettes chorizo", "", "Apéritif", "ap_madeleine_courgette_chorizo"));
+            boolean isInserted2 = insertRecipe(new RecipeObject("Madeleine courgettes chorizo", "", "Apéritif", "ap_madeleine_courgette_chorizo.jpg"));
             //boolean isInserted2 = insertRecipe("Madeleine courgettes chorizo", "", "Apéritif", "ap_madeleine_courgette_chorizo.jpg", 5, 6);
             if (!isInserted2) complete = false;
+
+
         }
         return complete;
     }
