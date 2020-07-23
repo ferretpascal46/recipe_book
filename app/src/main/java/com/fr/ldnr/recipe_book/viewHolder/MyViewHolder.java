@@ -7,13 +7,14 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fr.ldnr.recipe_book.R;
+import com.fr.ldnr.recipe_book.model.RecipeObject;
 import com.squareup.picasso.Picasso;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView textViewView;
-    private TextView textView_pays;
-    private TextView textView_pop;
+    private TextView textView_cat;
+    private TextView textView_name;
+    private TextView textView_com;
     private ImageView imageView;
 
     //itemView est la vue correspondante à une cellue
@@ -21,19 +22,19 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         // récupération des TextView et de l'ImageView
-        textViewView = itemView.findViewById(R.id.text);
-        textView_pays = itemView.findViewById(R.id.text_pays);
-        textView_pop = itemView.findViewById(R.id.text_pop);
+        textView_cat = itemView.findViewById(R.id.text_cat);
+        textView_name = itemView.findViewById(R.id.text_name);
+        textView_com = itemView.findViewById(R.id.text_com);
         imageView = itemView.findViewById(R.id.image);
     }
 
     /* fonction pour remplir les cellules en fonction d'un MyObject
        chargement de l'image à l'aide de Picasso
      */
-    public void bind(MyObject myObject) {
-        textViewView.setText(myObject.getText());
-        textView_pays.setText(myObject.getText_pays());
-        textView_pop.setText(myObject.getText_pop());
-        Picasso.with(imageView.getContext()).load(myObject.getImageUrl()).centerCrop().fit().into(imageView);
+    public void bind(RecipeObject myObject) {
+        textView_cat.setText(myObject.getRecipe_category());
+        textView_name.setText(myObject.getRecipe_title());
+        textView_com.setText(myObject.getRecipe_note());
+        Picasso.with(imageView.getContext()).load(myObject.getRecipe_file()).centerCrop().fit().into(imageView);
     }
 }

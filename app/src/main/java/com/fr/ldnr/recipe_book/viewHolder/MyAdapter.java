@@ -7,15 +7,16 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fr.ldnr.recipe_book.R;
+import com.fr.ldnr.recipe_book.model.RecipeObject;
 
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    List<MyObject> list;
+    List<RecipeObject> list;
 
     // constructeur qui prend en entrée une liste
-    public MyAdapter(List<MyObject> list) {
+    public MyAdapter(List<RecipeObject> list) {
         this.list = list;
     }
 
@@ -31,7 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         appel à la fonction bind de MyViewHolder
      */
     public void onBindViewHolder(MyViewHolder myViewHolder, int position) {
-        MyObject myObject = list.get(position);
+        RecipeObject myObject = list.get(position);
         myViewHolder.bind(myObject);
     }
 
