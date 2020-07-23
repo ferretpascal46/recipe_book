@@ -233,19 +233,65 @@ public class DAORecipe {
     public boolean populateRecipe() {
         boolean complete = true;
         if (numbersOfRows() == 0) {
-            boolean isInserted0 = insertRecipe(new RecipeObject("Gougère au comté", "", "Apéritif", R.drawable.saumon_abricots));
-            //boolean isInserted0 = insertRecipe("Gougère au comté", "", "Apéritif", "ap_gougere_au_comte.jpg", 2, 1);
+            boolean isInserted0 = insertRecipe(new RecipeObject("Gougère au comté", "", "Apéritif", R.drawable.ap_gougere_comté));
             if (!isInserted0) complete = false;
 
             boolean isInserted1 = insertRecipe(new RecipeObject("Granité de melon et chips de jambon cru", "", "Apéritif", R.drawable.ap_granitr_de_melon_jambon_cru));
-            //boolean isInserted1 = insertRecipe("Granité de melon et chips de jambon cru", "", "Apéritif", "ap_granitr_de_melon_cru.jpg", 3, 4);
             if (!isInserted1) complete = false;
 
-            boolean isInserted2 = insertRecipe(new RecipeObject("Madeleine courgettes chorizo", "", "Apéritif", R.drawable.ap_tapenade_thon));
-            //boolean isInserted2 = insertRecipe("Madeleine courgettes chorizo", "", "Apéritif", "ap_madeleine_courgette_chorizo.jpg", 5, 6);
+            boolean isInserted2 = insertRecipe(new RecipeObject("Madeleine courgettes chorizo", "", "Apéritif", R.drawable.ap_madeleine_courgette_chorizo));
             if (!isInserted2) complete = false;
 
+            boolean isInserted3 = insertRecipe(new RecipeObject("Tapenade aux olives vertes", "", "Apéritif", R.drawable.ap_tapenade_thon));
+            if (!isInserted3) complete = false;
 
+            boolean isInserted4 = insertRecipe(new RecipeObject("Cocktail passion bière", "", "Cocktail", R.drawable.cock_passion_biere));
+            if (!isInserted4) complete = false;
+
+            boolean isInserted5 = insertRecipe(new RecipeObject("Cheescake framboise", "", "Dessert", R.drawable.des_cheescake_framboise));
+            if (!isInserted5) complete = false;
+
+            boolean isInserted6 = insertRecipe(new RecipeObject("Crumble aux pommes", "", "Dessert", R.drawable.des_crumble_aux_pommes));
+            if (!isInserted6) complete = false;
+
+            boolean isInserted7 = insertRecipe(new RecipeObject("Framboisier à emporter", "", "Dessert", R.drawable.des_framboisier_a_emporter));
+            if (!isInserted7) complete = false;
+
+            boolean isInserted8 = insertRecipe(new RecipeObject("Tarte banane et noix de coco", "", "Dessert", R.drawable.des_tarte_banane_noix_de_coco));
+            if (!isInserted8) complete = false;
+
+            boolean isInserted9 = insertRecipe(new RecipeObject("Pommes de terre à la suédoise", "", "Légumes", R.drawable.leg_pomme_de_terre_a_la_suedoise));
+            if (!isInserted9) complete = false;
+
+            boolean isInserted10 = insertRecipe(new RecipeObject("Dos de cabillaud et crumble", "", "Poisson", R.drawable.po_cabillaud_crumble));
+            if (!isInserted10) complete = false;
+
+            boolean isInserted11 = insertRecipe(new RecipeObject("Crevettes et St Jacques", "", "Poisson", R.drawable.po_crevettes_et_saint_jacques));
+            if (!isInserted11) complete = false;
+
+            boolean isInserted12 = insertRecipe(new RecipeObject("Gambas à la plancha", "", "Poisson", R.drawable.po_gambas_a_la_plancha));
+            if (!isInserted12) complete = false;
+
+            boolean isInserted13 = insertRecipe(new RecipeObject("Papillote au saumon et courgettes", "", "Poison", R.drawable.po_papillote_saumon));
+            if (!isInserted13) complete = false;
+
+            boolean isInserted14 = insertRecipe(new RecipeObject("Salade Mangue avocat crevettes", "", "Salade", R.drawable.sal_mangue));
+            if (!isInserted14) complete = false;
+
+            boolean isInserted15 = insertRecipe(new RecipeObject("Tarte au roquefort", "", "Tarte salée", R.drawable.ts_roquefort_poire));
+            if (!isInserted15) complete = false;
+
+            boolean isInserted16 = insertRecipe(new RecipeObject("Filet de boeuf au foie gras", "", "Viande", R.drawable.vi_filet_de_boeuf_au_foie_gras));
+            if (!isInserted16) complete = false;
+
+            boolean isInserted17 = insertRecipe(new RecipeObject("Escalope de dinde marinée", "", "Viande", R.drawable.vi_marinade_dinde));
+            if (!isInserted17) complete = false;
+
+            boolean isInserted18 = insertRecipe(new RecipeObject("Poulet basquaise", "", "Viande", R.drawable.vi_poulet_basquaise));
+            if (!isInserted18) complete = false;
+
+            boolean isInserted19 = insertRecipe(new RecipeObject("Tajine de poulet aux citrons confits", "", "Viande", R.drawable.vi_tajine_de_poulet));
+            if (!isInserted19) complete = false;
         }
         return complete;
     }

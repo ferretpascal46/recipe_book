@@ -49,8 +49,6 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         imageView.setImageBitmap(image);
         textView_id.setText(String.valueOf(myObject.getRecipe_id()));
         //Picasso.with(imageView.getContext()).load("android.resource://com.fr.ldnr.recipe_book/ap_granitr_de_melon_cru.jpg").centerCrop().fit().into(imageView);
-        Log.d("Fichier","good"+ R.drawable.saumon_abricots);
-        Log.d("Fichier","good"+ myObject.getRecipe_file());
         imageView.setImageResource(myObject.getRecipe_file());
         //Picasso.with(imageView.getContext()).load(myObject.getRecipe_file()).centerCrop().fit().into(imageView);
     }
