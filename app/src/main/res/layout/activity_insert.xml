@@ -21,11 +21,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.038"/>
 
+
     <EditText
-        android:id="@+id/etRecipe"
-        android:layout_width="wrap_content"
+        android:id="@+id/etNewRecipe"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="4dp"
         android:hint="@string/hintRecipeName"
         android:textSize="15dp"
         android:textStyle="italic"
@@ -35,8 +36,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174"/>
-
+        app:layout_constraintVertical_bias="0.165" />
 
     <TextView
         android:id="@+id/textView"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:text="@string/recipe_category"
-        android:textColor="@android:color/holo_blue_light"
+        android:textColor="@color/orange"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +60,7 @@
         android:id="@+id/etCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="112dp"
         android:hint="@string/hintCategory"
         android:textSize="15dp"
         android:textStyle="italic"
@@ -70,13 +70,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32">
-    </EditText>
+        app:layout_constraintVertical_bias="0.32"></EditText>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="28dp"
         android:text="@string/recipe_name"
         android:textColor="@color/darkred"
         android:textSize="20dp"
@@ -87,26 +86,27 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168"/>
+        app:layout_constraintVertical_bias="0.17" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tvIngredients"
+        android:textColor="@color/green"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.427"/>
+        app:layout_constraintVertical_bias="0.424" />
 
     <EditText
         android:id="@+id/etIngredient1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="92dp"
+        android:layout_marginEnd="88dp"
         android:hint="@string/hintIngredient1"
         android:textSize="15dp"
         android:textStyle="italic"
@@ -116,13 +116,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.435"/>
+        app:layout_constraintVertical_bias="0.434" />
 
     <EditText
         android:id="@+id/etIngredient2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="92dp"
+        android:layout_marginEnd="88dp"
         android:hint="@string/hintIngredient2"
         android:textSize="15dp"
         android:textStyle="italic"
@@ -132,7 +132,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.565"/>
+        app:layout_constraintVertical_bias="0.565" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -140,14 +140,16 @@
         android:text="@string/tv_Image"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-/>
+        app:layout_constraintVertical_bias="0.625" />
+
     <EditText
-        android:id="@+id/saisie_url"
+        android:id="@+id/etImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -161,7 +163,7 @@
         app:layout_constraintVertical_bias="0.732"/>
 
     <Button
-        android:id="@+id/clic_button"
+        android:id="@+id/AddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/grey"
@@ -180,7 +182,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/message_content1"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@color/darkred"
         android:textSize="15dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"

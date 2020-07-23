@@ -26,8 +26,5 @@
         android:orderInCategory="100"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/ma_recherche"
-        android:title="@string/menu"
-        app:showAsAction="ifRoom"/>
 
 </menu>
