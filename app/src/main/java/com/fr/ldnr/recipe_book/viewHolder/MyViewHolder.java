@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fr.ldnr.recipe_book.R;
-import com.fr.ldnr.recipe_book.model.MyObject;
 import com.squareup.picasso.Picasso;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {

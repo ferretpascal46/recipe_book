@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.fr.ldnr.recipe_book.model.MyObject;
 import com.fr.ldnr.recipe_book.utils.DBHelper;
 
 import java.util.ArrayList;

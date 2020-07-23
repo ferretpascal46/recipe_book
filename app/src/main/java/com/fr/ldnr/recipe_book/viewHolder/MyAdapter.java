@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fr.ldnr.recipe_book.R;
-import com.fr.ldnr.recipe_book.model.MyObject;
 
 import java.util.List;
 
