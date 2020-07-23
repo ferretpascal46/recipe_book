@@ -41,16 +41,15 @@ public class DBHelper extends SQLiteOpenHelper {
             + RECIPE_CATEGORY       + " TEXT,"
             + RECIPE_FILE           + " TEXT,"
             + FK_RECIPE_ALIMENT_1   + " INTEGER,"
-            + FK_RECIPE_ALIMENT_2   + " INTEGER,"
+            + FK_RECIPE_ALIMENT_2   + " INTEGER"
             +")";
 
-    //Table create statement
     //ALIMENT Table      - create statement
     private static final String CREATE_TABLE_ALIMENT =
             "CREATE TABLE "
             + TABLE_ALIMENT + "("
             + ALIMENT_ID    + " INTEGER PRIMARY KEY,"
-            + ALIMENT_NAME  + " TEXT,"
+            + ALIMENT_NAME  + " TEXT"
             +")";
 
 
