@@ -37,7 +37,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         textView_cat.setText(myObject.getRecipe_category());
         textView_name.setText(myObject.getRecipe_title());
         textView_com.setText(myObject.getRecipe_note());
-        imageView.setImageResource(R.drawable.ldnr);
+        imageView.setImageResource(R.drawable.saumon_abricots);
         //Picasso.with(imageView.getContext()).load(myObject.getRecipe_file()).centerCrop().fit().into(imageView);
     }
 }
