@@ -12,6 +12,8 @@
     <string name="hintNewRecipeName">Name of the new recipe</string>
     <string name="hintComentary">comments</string>
     <string name="hintCategory">category</string>
+    <string name="menu">menu</string>
+    <string name="message_content">empty fields are unauthorized (update)</string>
     <string name="message_content1">empty fields are unauthorized</string>
     <string name="updateButton">update</string>
     <string name="updateActivity">Update a recipe</string>
