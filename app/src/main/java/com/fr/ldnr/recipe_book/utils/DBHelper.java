@@ -35,20 +35,25 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_RECIPE =
             "CREATE TABLE "
             + TABLE_RECIPE + "("
-            + RECIPE_ID             + " INTEGER PRIMARY KEY,"
+            + RECIPE_ID             + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + RECIPE_TITLE          + " TEXT,"
             + RECIPE_NOTE           + " TEXT,"
             + RECIPE_CATEGORY       + " TEXT,"
             + RECIPE_FILE           + " TEXT,"
             + FK_RECIPE_ALIMENT_1   + " INTEGER,"
-            + FK_RECIPE_ALIMENT_2   + " INTEGER"
-            +")";
+            + FK_RECIPE_ALIMENT_2   + " INTEGER,"
+
+            + " FOREIGN KEY ("+FK_RECIPE_ALIMENT_1+") REFERENCES "
+                    +TABLE_ALIMENT+"("+ALIMENT_ID+"),"
+            + " FOREIGN KEY ("+FK_RECIPE_ALIMENT_2+") REFERENCES "
+                    +TABLE_ALIMENT+"("+ALIMENT_ID+")"
+            +");";
 
     //ALIMENT Table      - create statement
     private static final String CREATE_TABLE_ALIMENT =
             "CREATE TABLE "
             + TABLE_ALIMENT + "("
-            + ALIMENT_ID    + " INTEGER PRIMARY KEY,"
+            + ALIMENT_ID    + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ALIMENT_NAME  + " TEXT"
             +")";
 

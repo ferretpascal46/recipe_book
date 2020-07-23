@@ -44,8 +44,8 @@ public class DeleteActivity extends AppCompatActivity {
                 dao.close();
 
                 // retour à la vue principale
-                Intent secondIntent = new Intent(DeleteActivity.this, MainActivity.class);
-                startActivity(secondIntent);
+                Intent backIntent = new Intent(DeleteActivity.this, MainActivity.class);
+                startActivity(backIntent);
             }
         });
     }

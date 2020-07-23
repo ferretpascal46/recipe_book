@@ -12,6 +12,13 @@
         <activity android:name=".controllers.DeleteActivity" />
         <activity android:name=".controllers.InsertActivity" />
         <activity android:name=".controllers.UpdateActivity" />
+        <activity android:name=".controllers.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
