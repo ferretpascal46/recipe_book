@@ -6,17 +6,23 @@ public class RecipeObject {
     private String recipe_note;
     private String recipe_category;
     private String recipe_file;
-    private int fk_recipe_aliment_1;
-    private int fk_recipe_aliment_2;
 
-    public RecipeObject(int recipe_id, String recipe_title, String recipe_note, String recipe_category, String recipe_file, int fk_recipe_aliment_1, int fk_recipe_aliment_2) {
+
+
+    public RecipeObject(int recipe_id, String recipe_title, String recipe_note, String recipe_category, String recipe_file) {
         this.recipe_id = recipe_id;
         this.recipe_title = recipe_title;
         this.recipe_note = recipe_note;
         this.recipe_category = recipe_category;
         this.recipe_file = recipe_file;
-        this.fk_recipe_aliment_1 = fk_recipe_aliment_1;
-        this.fk_recipe_aliment_2 = fk_recipe_aliment_2;
+    }
+
+    public RecipeObject( String recipe_title, String recipe_note, String recipe_category, String recipe_file) {
+        this.recipe_id = 0;
+        this.recipe_title = recipe_title;
+        this.recipe_note = recipe_note;
+        this.recipe_category = recipe_category;
+        this.recipe_file = recipe_file;
     }
 
     public int getRecipe_id() {
@@ -59,19 +65,4 @@ public class RecipeObject {
         this.recipe_file = recipe_file;
     }
 
-    public int getFk_recipe_aliment_1() {
-        return fk_recipe_aliment_1;
-    }
-
-    public void setFk_recipe_aliment_1(int fk_recipe_aliment_1) {
-        this.fk_recipe_aliment_1 = fk_recipe_aliment_1;
-    }
-
-    public int getFk_recipe_aliment_2() {
-        return fk_recipe_aliment_2;
-    }
-
-    public void setFk_recipe_aliment_2(int fk_recipe_aliment_2) {
-        this.fk_recipe_aliment_2 = fk_recipe_aliment_2;
-    }
 }

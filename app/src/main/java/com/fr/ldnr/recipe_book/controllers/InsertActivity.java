@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.fr.ldnr.recipe_book.R;
 import com.fr.ldnr.recipe_book.dao.DAORecipe;
+import com.fr.ldnr.recipe_book.model.RecipeObject;
 
 public class InsertActivity extends AppCompatActivity {
 
@@ -20,12 +21,11 @@ public class InsertActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
-        final EditText capital = findViewById(R.id.saisie_capitale);
-        final EditText pays = findViewById(R.id.saisie_pays);
-        final EditText nobble = findViewById(R.id.saisie_pop);
-        final EditText url = findViewById(R.id.saisie_url);
-        final Button connexion = findViewById(R.id.clic_button);
-        final TextView error = findViewById(R.id.message);
+        final EditText et_recipe_name = findViewById(R.id.saisie_capitale);
+        final EditText et_recipe_category = findViewById(R.id.saisie_pays);
+        final EditText et_recipe_file = findViewById(R.id.saisie_url);
+        final Button btn_insert = findViewById(R.id.clic_button);
+        final TextView et_error = findViewById(R.id.message);
 
         /**
          * TODO: changer le message content
@@ -37,19 +37,19 @@ public class InsertActivity extends AppCompatActivity {
         dao.open();
 
         // gestion du click du bouton ajouter
-        connexion.setOnClickListener(new View.OnClickListener() {
+        btn_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //gestion des erreurs
-                if (capital.getText().toString().isEmpty() || pays.getText().toString().isEmpty() || url.getText().toString().isEmpty()) {
-                    /**
-                     * TODO:changer le message content
-                     */
-                    //error.setText(R.string.message_content1);
+                if (et_recipe_name.getText().toString().isEmpty()
+                        || et_recipe_category.getText().toString().isEmpty()
+                        || et_recipe_file.getText().toString().isEmpty()) {
+
+                    et_error.setText(R.string.message_content1);
                 } else {
                     // insertion dans la database, méthode de DAORecipe
-                    boolean isInserted = dao.insertCapitale(capital.getText().toString(),
-                            pays.getText().toString(), nobble.getText().toString(), url.getText().toString());
+                    boolean isInserted = dao.insertRecipe(new RecipeObject(et_recipe_name.getText().toString(), ""
+                            , et_recipe_category.getText().toString(), et_recipe_file.getText().toString()));
 
                     // contrôle de l'insertion dans la database
                     if (isInserted==true)
