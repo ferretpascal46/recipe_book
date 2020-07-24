@@ -73,25 +73,34 @@
             android:textSize="20dp"
             android:textStyle="italic"
             tools:text="@string/commentary" />
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <Button
             android:id="@+id/update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="modifier"
+            android:layout_marginStart="12dp"
             android:onClick="update"/>
 
-        <Button
-            android:id="@+id/delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="delete"
-            android:text="supprimer" />
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:onClick="delete"
+                android:text="supprimer" />
+
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/textView_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"/>
+
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
